@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="it.lorenzo.tracciagps" android:versionCode="4" android:versionName="2.2-beta1">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+    <application android:label="Traccia GPS 2 Beta" android:icon="@drawable/ic_mountain" android:theme="@style/AppTheme" android:allowBackup="false" android:supportsRtl="true">
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity>
+        <activity android:name=".UpdateActivity" android:exported="false" />
+        <provider android:name=".UpdateProvider" android:authorities="it.lorenzo.tracciagps.beta2.updates" android:exported="false" android:grantUriPermissions="true" />
+        <activity android:name=".MapActivity" android:exported="false" />
+        <activity android:name=".PhotoActivity" android:exported="false" />
+        <provider android:name=".PhotoProvider" android:authorities="it.lorenzo.tracciagps.beta2.photos" android:exported="false" android:grantUriPermissions="true" />
+        <service android:name=".TrackingService" android:exported="false" android:foregroundServiceType="location" android:stopWithTask="false" />
+    </application>
+</manifest>
